@@ -6,33 +6,34 @@ import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 public class TestCalibrationDocument {
 
     @Test
+    @SuppressWarnings("unchecked")
     void calibration_record_equals_12_when_first_digit_is_1_and_last_digit_is_2() {
         CalibrationDocument document = new CalibrationDocument(Mockito.mock(List.class));
         assertEquals(12, document.rowCalibrationValue("1abc2"));
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     void calibration_record_equals_38_when_first_digit_is_3_and_last_digit_is_8() {
         CalibrationDocument document = new CalibrationDocument(Mockito.mock(List.class));
         assertEquals(38, document.rowCalibrationValue("pqr3stu8vwx"));
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     void calibration_record_equals_15_when_first_digit_is_1_and_last_digit_is_5() {
         CalibrationDocument document = new CalibrationDocument(Mockito.mock(List.class));
         assertEquals(15, document.rowCalibrationValue("a1b2c3d4e5f"));
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     void calibration_record_equals_77_when_the_only_digit_is_7() {
         CalibrationDocument document = new CalibrationDocument(Mockito.mock(List.class));
         assertEquals(77, document.rowCalibrationValue("treb7uchet"));
@@ -61,7 +62,7 @@ public class TestCalibrationDocument {
     @Test
     void incorrect_filename_results_in_null_pointer_exception() throws FileNotFoundException {
         try {
-            CalibrationDocument document = new CalibrationDocument("missing.input");
+            new CalibrationDocument("missing.input");
         } catch (NullPointerException e) {
             assertThrowsExactly(NullPointerException.class, () -> {
                 throw e;
