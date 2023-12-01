@@ -24,7 +24,7 @@ public class CalibrationDocument {
     }
   }
 
-  public int rowCalibrationValue(String calibrationInput) {
+  int rowCalibrationValue(String calibrationInput) {
     String digits =
         calibrationInput
             .chars()
@@ -44,5 +44,30 @@ public class CalibrationDocument {
       total += rowCalibrationValue(calibrationInput);
     }
     return total;
+  }
+
+  public int totalCalibrationDocumentValueWithNumericWords() {
+    int total = 0;
+    for (String calibrationInput : this.calibrationDocument) {
+      total += rowCalibrationValue(convertNumericWordsToDigits(calibrationInput));
+    }
+    return total;
+  }
+
+  String convertNumericWordsToDigits(String calibrationInput) {
+    return calibrationInput
+        .replaceAll("oneight", "18")
+        .replaceAll("twone", "21")
+        .replaceAll("eightwo", "82")
+        .replaceAll("one", "1")
+        .replaceAll("two", "2")
+        .replaceAll("three", "3")
+        .replaceAll("four", "4")
+        .replaceAll("five", "5")
+        .replaceAll("six", "6")
+        .replaceAll("seven", "7")
+        .replaceAll("eight", "8")
+        .replaceAll("nine", "9")
+        .replaceAll("zero", "0");
   }
 }
