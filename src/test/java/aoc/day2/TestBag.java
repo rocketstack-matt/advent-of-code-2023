@@ -3,7 +3,7 @@ package aoc.day2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class BagTest {
+public class TestBag {
   @Test
   void game_1_is_valid_for_bag_with_12_red_13_green_and_14_blue_cubes() {
     Bag bag = new Bag(12, 13, 14);
