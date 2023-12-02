@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Solution {
 
-  private int result;
+  private final int result;
   
   public Solution() throws FileNotFoundException {
     String filepath = Objects.requireNonNull(getClass().getResource("day2.input")).getFile();

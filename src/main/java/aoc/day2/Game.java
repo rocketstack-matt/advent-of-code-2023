@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private int id;
-    private List<GameReveal> gameReveals;
+    private final int id;
+    private final List<GameReveal> gameReveals;
 
     public Game(String gameRecord) {
         String[] parts = gameRecord.split(": ");

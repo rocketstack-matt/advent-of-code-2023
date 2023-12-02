@@ -1,9 +1,9 @@
 package aoc.day2;
 
 public class Bag {
-  private int red;
-  private int blue;
-  private int green;
+  private final int red;
+  private final int blue;
+  private final int green;
 
   // Colours represent how many of that colour cube are in the bag.
   public Bag(int red, int blue, int green) {

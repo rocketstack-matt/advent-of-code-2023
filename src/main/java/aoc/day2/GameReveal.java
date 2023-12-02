@@ -8,21 +8,21 @@ public class GameReveal {
 
   public GameReveal(String gameRecordSegment) {
     String[] elements = gameRecordSegment.split(", ");
-    for(int i=0; i<elements.length; i++) {
-        String[] parts = elements[i].split(" ");
-        String colour = parts[1].trim();
-        int count = Integer.parseInt(parts[0]);
-        switch(colour) {
-            case "red":
-                red = count;
-                break;
-            case "blue":
-                blue = count;
-                break;
-            case "green":
-                green = count;
-                break;
-        }
+    for (String element : elements) {
+      String[] parts = element.split(" ");
+      String colour = parts[1].trim();
+      int count = Integer.parseInt(parts[0]);
+      switch (colour) {
+        case "red":
+          red = count;
+          break;
+        case "blue":
+          blue = count;
+          break;
+        case "green":
+          green = count;
+          break;
+      }
     }
   }
 
