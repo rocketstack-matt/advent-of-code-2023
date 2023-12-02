@@ -86,7 +86,7 @@ public class TestCalibrationDocument {
 
     @Test
     @SuppressWarnings("unchecked")
-    void calibration_record_equals_83_when_input_is_two1nine() {
+    void calibration_record_equals_83_when_input_is_eightwothree() {
         CalibrationDocument document = new CalibrationDocument(Mockito.mock(List.class));
         assertEquals(83, document.rowCalibrationValue(document.convertNumericWordsToDigits("eightwothree")));
     }
