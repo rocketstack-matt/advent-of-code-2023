@@ -25,4 +25,18 @@ public class Game {
     public List<GameReveal> reveals() {
         return gameReveals;
     }
+
+    public int powerOfMinCubes() {
+        int minRed = 0;
+        int minBlue = 0;
+        int minGreen = 0;
+
+        for(GameReveal reveal : gameReveals) {
+            if(reveal.red() > minRed) minRed = reveal.red();
+            if(reveal.blue() > minBlue) minBlue = reveal.blue();
+            if(reveal.green() > minGreen) minGreen = reveal.green();
+        }
+
+        return minRed * minBlue * minGreen;
+    }
 }

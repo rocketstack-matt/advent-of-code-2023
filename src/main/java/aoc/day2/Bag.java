@@ -5,6 +5,10 @@ public class Bag {
   private final int blue;
   private final int green;
 
+  public Bag() {
+    this(0, 0, 0);
+  }
+
   // Colours represent how many of that colour cube are in the bag.
   public Bag(int red, int blue, int green) {
     this.red = red;
@@ -29,6 +33,15 @@ public class Bag {
       if (validGame(game)) {
         sum += new Game(game).id();
       }
+    }
+    return sum;
+  }
+
+  public int sumOfPowerOfAllPossibleGames(String gameRecords) {
+    int sum = 0;
+    String[] games = gameRecords.split("\n");
+    for (String game : games) {
+      sum += new Game(game).powerOfMinCubes();
     }
     return sum;
   }
