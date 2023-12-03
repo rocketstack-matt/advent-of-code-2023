@@ -1,7 +1,11 @@
 package aoc.day3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EngineSymbol {
   int x, y;
+  List<EnginePart> adjacentEngineParts = new ArrayList<>();
 
   public EngineSymbol(int x, int y) {
     this.x = x;
@@ -29,5 +33,22 @@ public class EngineSymbol {
         || diaganolRightAndUp
         || diaganolLeftAndDown
         || diaganolRightAndDown;
+  }
+
+  public boolean isGear(List<EnginePart> parts) {
+    adjacentEngineParts = new ArrayList<>();
+    for (EnginePart part : parts) {
+      if (partIsValid(part)) {
+        adjacentEngineParts.add(part);
+      }
+    }
+    return adjacentEngineParts.size() == 2;
+  }
+
+  public int gearRatio() throws Exception {
+    if (adjacentEngineParts.size() != 2) {
+      throw new Exception("Not a gear");
+    }
+    return adjacentEngineParts.get(0).partNumber * adjacentEngineParts.get(1).partNumber;
   }
 }

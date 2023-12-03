@@ -30,6 +30,7 @@ public class Engine {
       addEnginePartsForRow(y, scanner.nextLine());
       y++;
     }
+    scanner.close();
   }
 
   void addSymbolsForRow(int row, String line) {
@@ -62,6 +63,26 @@ public class Engine {
           sum += part.partNumber;
           break;
         }
+      }
+    }
+    return sum;
+  }
+
+  int countOfAllGears() {
+    int count = 0;
+    for (EngineSymbol symbol : symbols) {
+      if (symbol.isGear(parts)) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  int sumOfAllGearRatios() throws Exception {
+    int sum = 0;
+    for (EngineSymbol symbol : symbols) {
+      if (symbol.isGear(parts)) {
+        sum += symbol.gearRatio();
       }
     }
     return sum;

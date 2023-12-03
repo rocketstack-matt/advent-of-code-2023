@@ -85,8 +85,14 @@ public class EngineTest {
   }
 
   @Test
-  void test_sum_of_all_valid_engine_parts_equals_4361() throws FileNotFoundException {
+  void count_of_all_gears_is_2() throws FileNotFoundException {
     Engine engine = new Engine("test.input");
-    Assertions.assertEquals(4361, engine.sumOfAllValidEngineParts());
+    Assertions.assertEquals(2, engine.countOfAllGears());
+  }
+
+  @Test
+  void sum_of_all_valid_engine_parts_is_467835() throws Exception {
+    Engine engine = new Engine("test.input");
+    Assertions.assertEquals(467835, engine.sumOfAllGearRatios());
   }
 }
