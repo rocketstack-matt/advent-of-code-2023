@@ -55,5 +55,6 @@ public class EngineSymbolTest {
   void part_diaganol_up_and_right_is_valid() {
     EngineSymbol symbol = new EngineSymbol(5, 8);
     EnginePart part = new EnginePart(6, 8, 7, "755");
+    Assertions.assertTrue(symbol.partIsValid(part));
   }
 }
