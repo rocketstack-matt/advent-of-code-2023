@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScratchCard {
+    int cardNo;
     List<Integer> cardNumbers;
     List<Integer> winningNumbers;
 
-    public ScratchCard(List<Integer> winningNumbers, List<Integer> cardNumbers) {
+    public ScratchCard(int cardNo, List<Integer> winningNumbers, List<Integer> cardNumbers) {
+        this.cardNo = cardNo;
         this.winningNumbers = winningNumbers;
         this.cardNumbers = cardNumbers;
     }
@@ -16,6 +18,7 @@ public class ScratchCard {
         winningNumbers = new ArrayList<>();
         cardNumbers = new ArrayList<>();
 
+        cardNo = Integer.parseInt(cardString.split(": ")[0].split("\\s+")[1].trim());
         String[] tokens = cardString.split(": ")[1].split(" \\| ");
         for (String winningNumber : tokens[0].trim().split("\\s+")) {
             winningNumbers.add(Integer.parseInt(winningNumber));
@@ -52,5 +55,15 @@ public class ScratchCard {
             }
         }
         return value;
+    }
+
+    public int winners() {
+        int winners = 0;
+        for (Integer cardNumber : cardNumbers) {
+            if (winningNumbers.contains(cardNumber)) {
+                winners++;
+            }
+        }
+        return winners;
     }
 }

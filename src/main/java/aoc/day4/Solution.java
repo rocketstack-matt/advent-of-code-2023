@@ -23,5 +23,8 @@ public class Solution {
   public static void main(String[] args) throws FileNotFoundException {
     Solution solution = new Solution();
     System.out.println("Part 1: " + solution.totalPoints);
+
+    CardCounter cardCounter = new CardCounter("day4.input");
+    System.out.println("Part 2: " + cardCounter.totalCardCount());
   }
 }
