@@ -7,5 +7,6 @@ public class Solution {
   public static void main(String[] args) throws FileNotFoundException {
     Almanac almanac = new Almanac("day5.input");
     System.out.println("Part 1: " + almanac.getClosestLocation());
+    System.out.println("Part 2: " + almanac.getClosestLocationInSeedRange());
   }
 }

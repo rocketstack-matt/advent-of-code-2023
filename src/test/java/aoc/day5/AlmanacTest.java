@@ -154,4 +154,20 @@ public class AlmanacTest {
     Almanac almanac = new Almanac("test.input");
     Assertions.assertEquals(35L, almanac.getClosestLocation());
   }
+
+  @Test
+  void seeds_in_ranges_79_14_55_12() {
+    Almanac almanac = new Almanac();
+    almanac.addSeeds("79 14 55 13");
+    Assertions.assertEquals(79L, almanac.seedsInRange.get(0));
+    Assertions.assertEquals(92L, almanac.seedsInRange.get(13));
+    Assertions.assertEquals(55L, almanac.seedsInRange.get(14));
+    Assertions.assertEquals(67L, almanac.seedsInRange.get(26));
+  }
+
+  @Test
+  void closest_see_in_range_location_from_file_is_46() throws FileNotFoundException {
+    Almanac almanac = new Almanac("test.input");
+    Assertions.assertEquals(46L, almanac.getClosestLocationInSeedRange());
+  }
 }

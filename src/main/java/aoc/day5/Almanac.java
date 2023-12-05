@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class Almanac {
   List<Long> seeds = new ArrayList<>();
+  List<Long> seedsInRange = new ArrayList<>();
   RangeMap<Long, Long> soilRangeAdjustmentMap = TreeRangeMap.create();
   RangeMap<Long, Long> fertilizerRangeAdjustmentMap = TreeRangeMap.create();
   RangeMap<Long, Long> waterRangeAdjustmentMap = TreeRangeMap.create();
@@ -73,6 +74,14 @@ public class Almanac {
   void addSeeds(String seedList) {
     for (String seedString : seedList.split(" ")) {
       seeds.add(Long.parseLong(seedString.trim()));
+    }
+
+    String[] ranges = seedList.split(" ");
+    for (int i = 0; i < ranges.length; i += 2) {
+      long start = Long.parseLong(ranges[i]);
+      long length = Long.parseLong(ranges[i + 1]);
+      seedsInRange.add(start);
+      seedsInRange.add(length);
     }
   }
 
@@ -164,6 +173,18 @@ public class Almanac {
     long closestLocation = Long.MAX_VALUE;
     for (Long seed : seeds) {
       closestLocation = Math.min(closestLocation, getLocationForSeed(seed));
+    }
+    return closestLocation;
+  }
+
+  public long getClosestLocationInSeedRange() {
+    long closestLocation = Long.MAX_VALUE;
+    for (int i = 0; i < seedsInRange.size(); i += 2) {
+      long start = seedsInRange.get(i);
+      long size = seedsInRange.get(i + 1);
+      for (long seed = start; seed < start + size; seed++) {
+        closestLocation = Math.min(closestLocation, getLocationForSeed(seed));
+      }
     }
     return closestLocation;
   }
