@@ -10,8 +10,8 @@ public class RecordTracker {
     records.add(new RaceRecord(raceLength, record));
   }
 
-  public int totalNoOfWaysToBeatRecords() {
-    int totalNoOfWays = 0;
+  public long totalNoOfWaysToBeatRecords() {
+    long totalNoOfWays = 0;
 
     for (RaceRecord record : records) {
       if (totalNoOfWays == 0) totalNoOfWays = record.noOfWaysToBeatRecord();

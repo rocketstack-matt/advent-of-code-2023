@@ -1,27 +1,32 @@
 package aoc.day6;
 
 public class RaceRecord {
-  int raceLength;
-  int record;
+  long raceLength;
+  long record;
 
-  public RaceRecord(int raceLength, int record) {
+  public RaceRecord(long raceLength, long record) {
     this.raceLength = raceLength;
     this.record = record;
   }
 
-  public int getDistanceTravelled(int timeHeld) {
+  public long getDistanceTravelled(long timeHeld) {
     return timeHeld * (raceLength - timeHeld);
   }
 
-  public int noOfWaysToBeatRecord() {
+  public long noOfWaysToBeatRecord() {
     int noOfWays = 0;
 
-    for (int i = 0; i <= raceLength; i++) {
+    for (long i = 0; i <= raceLength; i++) {
       if (getDistanceTravelled(i) > record) {
         noOfWays++;
       }
     }
 
     return noOfWays;
+  }
+
+  public static void main(String[] args) {
+    RaceRecord record = new RaceRecord(53717880L, 275118112151524L);
+    System.out.println(record.noOfWaysToBeatRecord());
   }
 }

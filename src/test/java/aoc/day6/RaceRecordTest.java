@@ -70,4 +70,10 @@ public class RaceRecordTest {
     RaceRecord record = new RaceRecord(30, 200);
     Assertions.assertEquals(9, record.noOfWaysToBeatRecord());
   }
+
+  @Test
+  void number_of_ways_to_travel_more_than_940200mm_in_71530ms_race_is_71503() {
+    RaceRecord record = new RaceRecord(71530, 940200);
+    Assertions.assertEquals(71503, record.noOfWaysToBeatRecord());
+  }
 }
